@@ -5,7 +5,7 @@
 ## 🔬 Research Foundation
 This project is a production-ready implementation of clinical research focused on diabetes management. As a first-author researcher published in **Springer Nature**, I developed this system to bridge the gap between static machine learning models and active clinical reasoning. 
 
-* **Original Paper:** [Link to your Springer Paper or DOI]
+* **Original Paper:** [https://doi.org/10.1007/s13410-026-01658-3]
 * **Core Methodology:** Bridging XGBoost predictive ensembles with grounded medical guidelines (ADA 2023 / PES 2022).
 
 ## 🏗️ System Architecture
