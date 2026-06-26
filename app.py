@@ -13,26 +13,30 @@ REPORTS = {
     "happy_path": """### Clinical Consultant Review (Agent 4)
 **1. Discrepancy Analysis**
 - **Model Output:** Predicted 'Diabetic' with 84% confidence.
-- **Guideline Match:** YES. According to Table 01 (Diagnostic Criteria), a Random Glucose of 210 mg/dL is classified as 'Diabetic' (>200).
+- **Guideline Match:** YES. According to Table 01, a Random Glucose of 210 mg/dL is 'Diabetic' (>200).
 - **Status:** High Confidence Match.
 
 **2. Final Summary**
 - **Risk Level:** High Risk (Confirmed Diabetic).
-- **Recommended Action:** Immediate referral to Endocrinology. Initiate HbA1c testing for baseline. Start Metformin + Lifestyle modification per PES 2022 guidelines.""",
+- **Recommended Action:** Immediate referral to Endocrinology. Start Metformin per PES 2022.""",
 
     "emergency": """### 🚨 EMERGENCY_ALERT: CRITICAL SAFETY BREACH
 **Agent 1 (Gatekeeper) has detected a life-threatening scenario.**
-- **Observation:** Glucose level of 800 mg/dL is outside the validated model range (40-400).
-- **Observation:** Patient age (15) is below the validated adult model minimum (21).
-- **ACTION REQUIRED:** Do not proceed with ML Risk Prediction. This patient requires immediate Emergency Department intervention for potential Diabetic Ketoacidosis (DKA).""",
+- **Observation:** Glucose level of 800 mg/dL is outside validated range (40-400).
+- **Observation:** Patient age (15) is below adult minimum (21).
+- **ACTION:** Immediate Emergency Department intervention required.""",
 
-    "incomplete": """### Clinical Auditor Review (Agent 4)
-**Status: Incomplete Assessment**
-- **Reason:** Agent 2 (Predictor) refused to execute. Mandatory features (Insulin, SkinThickness, BloodPressure) are missing.
-- **Manual Clinical Insight:** While the model cannot run, the patient's Glucose of 180 is classified as **Prediabetic** per PES 2022 Table 01.
-- **Recommendation:** Re-submit with full lab panel for a comprehensive ML risk score."""
+    "discrepancy": """### Clinical Auditor Review (Agent 4)
+**1. Discrepancy Analysis**
+- **Model Output:** Predicted 'High Risk' (71% confidence).
+- **Guideline Match:** NO. For a 28-year-old with no family history, a Glucose of 105 is 'Prediabetes' but indicates low clinical risk.
+- **Status:** ⚠️ **Discrepancy Detected.**
+
+**2. Final Summary**
+- **Risk Level:** Low to Moderate. 
+- **Reason:** The ML model is over-predicting risk based on limited features. 
+- **Recommended Action:** Perform follow-up test in 6 months. Do not initiate pharmacotherapy."""
 }
-
 # Sidebar
 with st.sidebar:
     st.header("Patient Intake")
